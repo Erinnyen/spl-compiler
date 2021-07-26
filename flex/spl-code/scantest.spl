@@ -1,5 +1,9 @@
-array;
-100;
-hello world;
-11111
-)
+var x : int ;
+var y : int ;
+
+x = 2 + y;
+
+proc hello(ref a : int)
+{
+    // comment
+}

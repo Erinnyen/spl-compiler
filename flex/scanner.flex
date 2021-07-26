@@ -44,14 +44,61 @@ array   {
         return ARRAY;
 }
 
+else   {
+        yylval.noVal.line = lineNo;
+        return ELSE;
+}
+
+if   {
+        yylval.noVal.line = lineNo;
+        return IF;
+}
+
+of   {
+        yylval.noVal.line = lineNo;
+        return OF;
+}
+
+proc   {
+        yylval.noVal.line = lineNo;
+        return PROC;
+}
+
+ref   {
+        yylval.noVal.line = lineNo;
+        return REF;
+}
+
 type   {
         yylval.noVal.line = lineNo;
         return TYPE;
 }
 
+var   {
+        yylval.noVal.line = lineNo;
+        return VAR;
+}
+
+while   {
+        yylval.noVal.line = lineNo;
+        return WHILE;
+}
+
+
+
 \(      {
         yylval.noVal.line = lineNo;
         return LPAREN;
+}
+
+\)      {
+        yylval.noVal.line = lineNo;
+        return RPAREN;
+}
+
+;       {
+        yylval.noVal.line = lineNo;
+        return SEMICOL;
 }
 
 [A-Za-z_][A-Za-z0-9_]* {
@@ -64,11 +111,6 @@ type   {
         yylval.intVal.line = lineNo;
         yylval.intVal.val = strtol(yytext, NULL, 10);
         return INTLIT;
-}
-
-;       {
-        yylval.noVal.line = lineNo;
-        return SEMICOL;
 }
 
 .       {
@@ -102,6 +144,10 @@ void main(int argc, char **argv){
 
             case LPAREN :
                 printf("LPAREN in line %d\n", yylval.noVal.line); 
+                break;
+
+            case RPAREN :
+                printf("RPAREN in line %d\n", yylval.noVal.line); 
                 break;
 
             case IDENT  :

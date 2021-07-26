@@ -96,10 +96,98 @@ while   {
         return RPAREN;
 }
 
-;       {
+\[      {
+        yylval.noVal.line = lineNo;
+        return LSQBRACK;
+}
+
+\]      {
+        yylval.noVal.line = lineNo;
+        return RSQBRACK;
+}
+
+\{      {
+        yylval.noVal.line = lineNo;
+        return LBLOCK;
+}
+
+\)      {
+        yylval.noVal.line = lineNo;
+        return RBLOCK;
+}
+
+=      {
+        yylval.noVal.line = lineNo;
+        return EQUAL;
+}
+
+#      {
+        yylval.noVal.line = lineNo;
+        return NOTEQUAL;
+}
+
+<      {
+        yylval.noVal.line = lineNo;
+        return LESS;
+}
+
+<=      {
+        yylval.noVal.line = lineNo;
+        return LESSEQ;
+}
+
+>      {
+        yylval.noVal.line = lineNo;
+        return GRTR;
+}
+
+>=     {
+        yylval.noVal.line = lineNo;
+        return GRTREQ;
+}
+
+:=     {
+        yylval.noVal.line = lineNo;
+        return ASGN;
+}
+
+:      {
+        yylval.noVal.line = lineNo;
+        return COL;
+}
+
+,      {
+        yylval.noVal.line = lineNo;
+        return COMMA;
+}
+
+;      {
         yylval.noVal.line = lineNo;
         return SEMICOL;
 }
+
++      {
+        yylval.noVal.line = lineNo;
+        return PLUS;
+}
+
+-      {
+        yylval.noVal.line = lineNo;
+        return MINUS;
+}
+
+*     {
+        yylval.noVal.line = lineNo;
+        return MULT;
+}
+
+\/    {
+        yylval.noVal.line = lineNo;
+        return DVSN;
+}
+
+
+
 
 [A-Za-z_][A-Za-z0-9_]* {
         yylval.stringVal.line = lineNo;

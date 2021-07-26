@@ -111,7 +111,7 @@ while   {
         return LBLOCK;
 }
 
-\)      {
+\}      {
         yylval.noVal.line = lineNo;
         return RBLOCK;
 }
@@ -126,32 +126,32 @@ while   {
         return NOTEQUAL;
 }
 
-<      {
+\<      {
         yylval.noVal.line = lineNo;
         return LESS;
 }
 
-<=      {
+\<=      {
         yylval.noVal.line = lineNo;
         return LESSEQ;
 }
 
->      {
+\>      {
         yylval.noVal.line = lineNo;
         return GRTR;
 }
 
->=     {
+\>=     {
         yylval.noVal.line = lineNo;
         return GRTREQ;
 }
 
-:=     {
+\:=     {
         yylval.noVal.line = lineNo;
         return ASGN;
 }
 
-:      {
+\:      {
         yylval.noVal.line = lineNo;
         return COL;
 }
@@ -166,7 +166,7 @@ while   {
         return SEMICOL;
 }
 
-+      {
+\+      {
         yylval.noVal.line = lineNo;
         return PLUS;
 }
@@ -176,7 +176,7 @@ while   {
         return MINUS;
 }
 
-*     {
+\*     {
         yylval.noVal.line = lineNo;
         return MULT;
 }
@@ -230,6 +230,38 @@ void main(int argc, char **argv){
                 printf("ARRAY in line %d\n", yylval.noVal.line); 
                 break;
 
+            case ELSE  :
+                printf("ELSE in line %d\n", yylval.noVal.line); 
+                break;
+
+            case IF  :
+                printf("IF in line %d\n", yylval.noVal.line); 
+                break;
+
+            case OF  :
+                printf("OF in line %d\n", yylval.noVal.line); 
+                break;
+
+            case PROC  :
+                printf("PROC in line %d\n", yylval.noVal.line); 
+                break;
+
+            case REF  :
+                printf("REF in line %d\n", yylval.noVal.line); 
+                break;
+
+            case TYPE  :
+                printf("TYPE in line %d\n", yylval.noVal.line); 
+                break;    
+            
+            case VAR  :
+                printf("VAR in line %d\n", yylval.noVal.line); 
+                break;
+
+            case WHILE  :
+                printf("WHILE in line %d\n", yylval.noVal.line); 
+                break;
+
             case LPAREN :
                 printf("LPAREN in line %d\n", yylval.noVal.line); 
                 break;
@@ -238,16 +270,84 @@ void main(int argc, char **argv){
                 printf("RPAREN in line %d\n", yylval.noVal.line); 
                 break;
 
+            case LSQBRACK  :
+                printf("LSQBRACK in line %d\n", yylval.noVal.line); 
+                break;
+
+            case RSQBRACK  :
+                printf("RSQBRACK in line %d\n", yylval.noVal.line); 
+                break;
+
+            case LBLOCK  :
+                printf("LBLOCK in line %d\n", yylval.noVal.line); 
+                break;
+
+            case RBLOCK  :
+                printf("RBLOCK in line %d\n", yylval.noVal.line); 
+                break;
+
+            case EQUAL  :
+                printf("EQUAL in line %d\n", yylval.noVal.line); 
+                break;
+
+            case NOTEQUAL  :
+                printf("NOTEQUAL in line %d\n", yylval.noVal.line); 
+                break;
+
+            case LESS  :
+                printf("LESS in line %d\n", yylval.noVal.line); 
+                break;
+
+            case LESSEQ  :
+                printf("LESSEQ in line %d\n", yylval.noVal.line); 
+                break;
+
+            case GRTR  :
+                printf("GRTR in line %d\n", yylval.noVal.line); 
+                break;
+
+            case GRTREQ  :
+                printf("GRTREQ in line %d\n", yylval.noVal.line); 
+                break;
+
+            case ASGN  :
+                printf("ASGN in line %d\n", yylval.noVal.line); 
+                break;
+
+            case COL  :
+                printf("COL in line %d\n", yylval.noVal.line); 
+                break;
+
+            case COMMA  :
+                printf("COMMA in line %d\n", yylval.noVal.line); 
+                break;
+
+            case SEMICOL  :
+                printf("SEMICOL in line %d\n", yylval.noVal.line); 
+                break;
+
+            case PLUS  :
+                printf("PLUS in line %d\n", yylval.noVal.line); 
+                break;
+
+            case MINUS  :
+                printf("MINUS in line %d\n", yylval.noVal.line); 
+                break;
+
+            case MULT  :
+                printf("MULT in line %d\n", yylval.noVal.line); 
+                break;
+
+            case DVSN  :
+                printf("DVSN in line %d\n", yylval.noVal.line); 
+                break;
+
             case IDENT  :
                 printf("IDENT %s in line %d\n", yylval.stringVal.val, yylval.stringVal.line); 
                 break;
 
             case INTLIT :
                 printf("INTLIT %d in line %d\n", yylval.intVal.val, yylval.intVal.line); 
-                break;
-
-            case SEMICOL    :
-                printf("SEMICOL in line %d\n", yylval.noVal.line); 
                 break;
             }
         } while (token != 0);
